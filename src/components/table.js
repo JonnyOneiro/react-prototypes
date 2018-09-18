@@ -1,33 +1,29 @@
 import React from 'react';
 
-export default () => {
-    return  (
-            <table className='table'>
-                <thead className='thread-inverse'>
-                    <tr>
-                        <th>Name</th>
-                        <th>Course</th>
-                        <th>Grade</th>
-                    </tr>
-                </thead>
+export default (props) => {
 
-                <tbody>
-                    <tr>
-                        <td>Bruce Wayne</td>
-                        <td>Criminal Justice</td>
-                        <td>94</td>
-                    </tr>
-                    <tr>
-                        <td>Barry Allen</td>
-                        <td>Forensic Science</td>
-                        <td>98</td>
-                    </tr>
-                    <tr>
-                        <td>Clark Kent</td>
-                        <td>Creative Writing</td>
-                        <td>86</td>
-                    </tr>
-                </tbody>
-            </table>
-    )
+    const tableRows = props.data.map((studentObj, index) => {
+        return (
+            <tr key={index}>
+                <td>{studentObj.name}</td>
+                <td>{studentObj.course}</td>
+                <td>{studentObj.grade}</td>
+            </tr>
+        )
+    });
+
+    return (
+        <table className="table">
+            <thead className="thead-inverse">
+                <tr>
+                    <th>Name</th>
+                    <th>Course</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                {tableRows}
+            </tbody>
+        </table>
+    ) 
 }
